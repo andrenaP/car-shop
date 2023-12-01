@@ -1,4 +1,4 @@
-import delafultimag from '../../assets/delafult-image.png';
+import delafultimag from 'assets/delafult-image.png';
 import {
     CarList,
     CarImg
