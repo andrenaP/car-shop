@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <Navigation>
-      <StyledLink to="/">
+        <StyledLink to="/">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
