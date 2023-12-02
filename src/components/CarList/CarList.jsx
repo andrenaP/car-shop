@@ -1,12 +1,6 @@
-import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
-import axios from 'axios';
 import CarItem from 'components/CarItem/CarItem';
-
 import { CarUl } from './CarList.styled';
-
 import { selectCarsList } from '../../redux/cars/selectors';
 
 const ContactList = () => {

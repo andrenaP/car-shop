@@ -11,10 +11,10 @@ export const CarList = styled.li`
   border-style: solid;
 `;
 export const CarImg = styled.img`
-  width: 150%;
-  height: 100%;
-  position: relative;
-  right: 25%;
+  bject-fit: cover;
+  width: 100%;
+  height: 268px;
+
   background:
     linear-gradient(
       180deg,
