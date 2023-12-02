@@ -1,4 +1,5 @@
 import CarList from 'components/CarList/CarList';
+// import { Modal } from 'components/Modal/Modal';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +21,7 @@ const Catalog = () => {
     <div>
       {' '}
       {IsRefreshing && !error && <b>Request in progress</b>} <CarList />{' '}
+      {/* <Modal onClose={() => console.log('Closed')}>this is Modal</Modal> */}
     </div>
   );
 };

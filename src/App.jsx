@@ -4,7 +4,7 @@ import Home from 'pages/Home/Home';
 import Catalog from 'pages/Catalog/Catalog';
 import Favorites from 'pages/Favorites/Favorites';
 
-import ErrorPage from 'pages/ErrorPage/ErrorPage';
+// import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { AppWrapper } from './App.styled';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     </AppWrapper>

@@ -1,11 +1,13 @@
 import delafultimag from 'assets/delafult-image.png';
 import {
-  CarList,
+  CarCard,
   CarImg,
-  CarImgBox,
   CarData,
   CarDataHeader,
   CarDataText,
+  TextItem,
+  Button,
+  CarDataHeaderName,
 } from './CarItem.styled';
 const CarItem = ({
   id,
@@ -30,34 +32,39 @@ const CarItem = ({
   };
 
   return (
-    <CarList key={id}>
-      <CarImgBox>
+    <CarCard key={id}>
+      <div>
+        {' '}
         <CarImg src={img} alt={make} />
-      </CarImgBox>
-      <input type="checkbox" />
+      </div>
+
+      <input type="checkbox" className="visually-hidden" />
       <CarData>
         <CarDataHeader>
-          <span>{make}</span>
-          <span>{model}</span>
-          <span>{year}</span>
+          <CarDataHeaderName>
+            <span>{make}</span> <span>{model}</span>
+            {', '}
+            <span>{year}</span>
+          </CarDataHeaderName>
+
           <span>{rentalPrice}</span>
         </CarDataHeader>
         <CarDataText>
-          <span>{address}</span>
-          <span>{rentalCompany}</span>
-          <span>{model}</span>
-          <span>{id}</span>
-          <span>{functionalities}</span>
+          <TextItem>{address}</TextItem>
+          <TextItem>{rentalCompany}</TextItem>
+          <TextItem>{model}</TextItem>
+          <TextItem>{id}</TextItem>
+          <TextItem>{functionalities[0]}</TextItem>
         </CarDataText>
       </CarData>
-      <button
+      <Button
         onClick={() => {
           handleLoadInfo(id);
         }}
       >
-        Learn more
-      </button>
-    </CarList>
+        Learn&nbsp;more
+      </Button>
+    </CarCard>
   );
 };
 
