@@ -1,34 +1,25 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import axios from 'axios';
 import CarItem from 'components/CarItem/CarItem';
 
 import { CarUl } from './CarList.styled';
 
-const SetCars = (Seter, page = 1) => {
-  const url = new URL('https://656b2dfedac3630cf727cdb0.mockapi.io/advert');
-  url.searchParams.append('page', page);
-  url.searchParams.append('limit', 12);
-  const res = axios.get(url).then(function (response) {
-    Seter(response.data);
-  });
-};
+import { selectCarsList } from '../../redux/cars/selectors';
 
 const ContactList = () => {
-  const [cardata, setcardata] = useState([]);
-  useEffect(() => {
-    SetCars(setcardata);
-  }, []);
+  const cars = useSelector(selectCarsList);
 
   return (
     <>
       <CarUl>
-        {cardata.length === 0 && 'Nothing found'}
-        {cardata && (
+        {cars.length === 0 && 'Nothing found'}
+        {cars.length > 0 && (
           <>
-            {cardata.map((cars) => {
-              return <CarItem key={cars.id} {...cars} />;
+            {cars.map((cars) => {
+              if (cars.id) return <CarItem key={cars.id} {...cars} />;
             })}
           </>
         )}
