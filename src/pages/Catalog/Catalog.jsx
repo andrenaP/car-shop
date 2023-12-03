@@ -25,13 +25,15 @@ const Catalog = () => {
   useEffect(() => {
     dispatch(getAllCars(page));
   }, [dispatch, page]);
-  console.log(cars);
+  console.log(cars.length % 12);
   return (
     <div>
       {' '}
       {IsRefreshing && !error && <b>Request in progress</b>} <CarList />{' '}
       {/* <Modal onClose={() => console.log('Closed')}>this is Modal</Modal> */}
-      <NextPage onClick={UpdatePage}>Load more</NextPage>
+      {cars.length % 12 === 0 && (
+        <NextPage onClick={UpdatePage}>Load more</NextPage>
+      )}
     </div>
   );
 };
