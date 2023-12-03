@@ -1,5 +1,5 @@
 import CarList from 'components/CarList/CarList';
-// import { Modal } from 'components/Modal/Modal';
+import { Modal } from 'components/Modal/Modal';
 import { NextPage } from './Catalog.module';
 
 import { useState, useEffect } from 'react';
@@ -16,6 +16,7 @@ const Catalog = () => {
   const cars = useSelector(selectCarsList);
   const error = useSelector(selectCarsEror);
   const [page, setPage] = useState(1);
+  const [ModalID, setModalID] = useState(0);
 
   const UpdatePage = () => {
     setPage(page + 1);
@@ -33,8 +34,16 @@ const Catalog = () => {
       {' '}
       <Filter page={page} setPage={setPage} setData={setData}></Filter>
       {IsRefreshing && !error && <b>Request in progress</b>}{' '}
-      <CarList data={data} />{' '}
-      {/* <Modal onClose={() => console.log('Closed')}>this is Modal</Modal> */}
+      <CarList data={data} setModalID={setModalID} /> s
+      {ModalID != 0 && (
+        <Modal
+          onClose={() => {
+            setModalID(0);
+          }}
+        >
+          this is Modal for id {ModalID}
+        </Modal>
+      )}
       {cars.length % 12 === 0 && cars.length > 0 && (
         <NextPage onClick={UpdatePage}>Load more</NextPage>
       )}

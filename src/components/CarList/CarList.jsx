@@ -4,7 +4,7 @@ import { CarUl } from './CarList.styled';
 import { selectCarsList } from '../../redux/cars/selectors';
 import { useEffect, useState } from 'react';
 
-const ContactList = ({ data }) => {
+const ContactList = ({ data, setModalID }) => {
   // const cars = useSelector(selectCarsList);
 
   return (
@@ -14,7 +14,10 @@ const ContactList = ({ data }) => {
         {data.length > 0 && (
           <>
             {data.map((cars) => {
-              if (cars.id) return <CarItem key={cars.id} {...cars} />;
+              if (cars.id)
+                return (
+                  <CarItem key={cars.id} {...cars} setModalID={setModalID} />
+                );
             })}
           </>
         )}

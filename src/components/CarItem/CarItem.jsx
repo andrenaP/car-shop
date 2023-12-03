@@ -27,8 +27,9 @@ const CarItem = ({
   address,
   rentalConditions,
   mileage,
+  setModalID,
 }) => {
-  const handleLoadInfo = userId => {
+  const handleLoadInfo = (userId) => {
     console.log(userId);
   };
 
@@ -58,7 +59,7 @@ const CarItem = ({
       </CarData>
       <Button
         onClick={() => {
-          handleLoadInfo(id);
+          setModalID(id);
         }}
       >
         Learn&nbsp;more

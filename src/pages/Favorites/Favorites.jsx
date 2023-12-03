@@ -39,9 +39,6 @@ const Favorites = () => {
     <>
       <h1>Favorites</h1>
       <CarList data={data}></CarList>
-      {cars.length % 12 === 0 && cars.length > 0 && (
-        <NextPage onClick={GetData}>Load more</NextPage>
-      )}
     </>
   );
 };
