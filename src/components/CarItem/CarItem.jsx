@@ -1,4 +1,5 @@
 import delafultimag from 'assets/delafult-image.png';
+import Heart from 'components/Heart/Heart';
 import {
   CarCard,
   CarImg,
@@ -27,18 +28,16 @@ const CarItem = ({
   rentalConditions,
   mileage,
 }) => {
-  const handleLoadInfo = (userId) => {
+  const handleLoadInfo = userId => {
     console.log(userId);
   };
 
   return (
     <CarCard key={id}>
       <div>
-        {' '}
+        <Heart dataId={id}></Heart>
         <CarImg src={img} alt={make} />
       </div>
-
-      <input type="checkbox" className="visually-hidden" />
       <CarData>
         <CarDataHeader>
           <CarDataHeaderName>

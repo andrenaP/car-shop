@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CarCard = styled.li`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 274px;
@@ -20,6 +21,7 @@ export const CarImg = styled.img`
 
   height: 280px;
   margin-bottom: 14px;
+  user-select: none;
 `;
 
 export const CarData = styled.div`
