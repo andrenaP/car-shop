@@ -22,7 +22,7 @@ const carsSlice = createSlice({
   extraReducers: {
     [getAllCars.fulfilled](state, action) {
       state.isRefreshing = false;
-      state.items = [state.items, ...action.payload];
+      state.items = state.items.concat(action.payload);
       state.error = null;
     },
     [getAllCars.rejected]: handleRejected,
